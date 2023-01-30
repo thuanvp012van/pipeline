@@ -1,0 +1,25 @@
+{
+    "name": "penguin/pepeline",
+    "description": "The Penguin Pipeline package.",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "plug",
+        "penguin"
+    ],
+    "authors": [
+        {
+            "name": "Nguyễn Hoàng Thắng Thuận",
+            "email": "thuanvp012van@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Penguin\\Component\\Pipeline\\": "src/"
+        }
+    },
+    "require": {
+        "php": "8.1"
+    }
+}
