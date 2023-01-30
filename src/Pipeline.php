@@ -18,7 +18,6 @@ class Pipeline
 
     protected string $method = 'process';
 
-
     public function __construct()
     {
         $this->next = function (mixed ...$params) {
