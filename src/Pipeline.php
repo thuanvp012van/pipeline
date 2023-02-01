@@ -35,9 +35,9 @@ class Pipeline
      * Set the object being sent through the pipeline.
      *
      * @param mixed ...$params
-     * @return static
+     * @return self
      */
-    public function send(mixed ...$params): static
+    public function send(mixed ...$params): self
     {
         $this->params = $params;
         return $this;
@@ -48,9 +48,9 @@ class Pipeline
      *
      * @param object ...$pipes
      * 
-     * @return static
+     * @return self
      */
-    public function through(object ...$pipes): static
+    public function through(object ...$pipes): self
     {
         $this->pipes = $pipes;
         return $this;
@@ -61,9 +61,9 @@ class Pipeline
      *
      * @param object ...$pipes
      * 
-     * @return static
+     * @return self
      */
-    public function pipe(object ...$pipes): static
+    public function pipe(object ...$pipes): self
     {
         $this->pipes = [...$this->pipes, ...$pipes];
         return $this;
@@ -74,9 +74,9 @@ class Pipeline
      *
      * @param string $method
      * 
-     * @return static
+     * @return self
      */
-    public function via(string $method): static
+    public function via(string $method): self
     {
         $this->method = $method;
         return $this;
