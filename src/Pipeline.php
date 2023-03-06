@@ -26,7 +26,8 @@ class Pipeline
                 $params[] = $this->next;
                 return $this->pipes[$this->currentStack]->{$this->method}(...$params);
             } else {
-                return call_user_func_array($this->destination, $params);
+                $destination = $this->destination;
+                return $destination(...$params);
             }
         };
     }
@@ -93,6 +94,7 @@ class Pipeline
     {
         $this->currentStack = -1;
         $this->destination = $destination;
-        return call_user_func_array($this->next, $this->params);
+        $next = $this->next;
+        return $next(...$this->params);
     }
 }
