@@ -48,7 +48,6 @@ class Pipeline
      * Set the array of pipes.
      *
      * @param object ...$pipes
-     * 
      * @return self
      */
     public function through(object ...$pipes): self
@@ -61,7 +60,6 @@ class Pipeline
      * Push additional pipes onto the pipeline.
      *
      * @param object ...$pipes
-     * 
      * @return self
      */
     public function pipe(object ...$pipes): self
@@ -74,7 +72,6 @@ class Pipeline
      * Set the method to call on the pipes.
      *
      * @param string $method
-     * 
      * @return self
      */
     public function via(string $method): self
@@ -87,7 +84,6 @@ class Pipeline
      * Run the pipeline with a final destination callback.
      *
      * @param \Closure $destination
-     * 
      * @return mixed
      */
     public function then(Closure $destination): mixed
@@ -96,5 +92,15 @@ class Pipeline
         $this->destination = $destination;
         $next = $this->next;
         return $next(...$this->params);
+    }
+
+    /**
+     * Run the pipeline and return the result.
+     *
+     * @return mixed
+     */
+    public function thenReturn(): mixed
+    {
+        return $this->then(fn(mixed ...$params) => $params);
     }
 }
